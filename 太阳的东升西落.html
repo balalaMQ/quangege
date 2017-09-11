@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.container{
+			width: 600px;
+			height: 500px;
+			position: relative;
+			margin: 0 auto;
+		}
+		.top{
+			width: 600px;
+			height: 400px;
+			background-color: lightblue;
+			position: relative;
+			animation: top 16s ease 1 forwards;
+
+		}
+		.bottom{
+			width: 600px;
+			height: 100px;
+			background-color: lightgreen;
+			position: relative;
+			z-index:10;
+			animation: bottom 16s ease 1 forwards;
+			transform: rotateX(111221212deg) rotateY(5121232323deg);
+		}
+		.sun{
+			width: 100px;
+			height: 100px;
+			background-color:red;
+			border-radius:50%;
+			position: absolute;
+			bottom:0;
+			right: 20px; 
+			animation: sun 10s ease 1 forwards;
+			z-index: 5;
+		}
+		.yun1{
+			width: 60px;
+			height: 30px;
+			position:absolute;
+			background-color: white;
+			border-radius: 50%;
+			top: 30px;
+			left: 10px;
+			z-index: 20;
+		}
+		.yun2{
+			width: 60px;
+			height: 30px;
+			position: absolute;
+			background-color: white;
+			border-radius: 50%;
+			top: 40px;
+			left: 0px;
+			z-index: 20;
+		}
+		.yun3{
+			width: 60px;
+			height: 30px;
+			position: absolute;
+			background-color: white;
+			border-radius: 50%;
+			top: 40px;
+			left: 25px;
+			z-index: 20;
+		}
+		.clo{
+			animation: clo 10s linear 1 forwards;
+			position: absolute;
+			left: -60px;
+		}
+		.moon1{
+			width: 100px;
+			height: 100px;
+			background: yellow;
+			border-radius: 50%;
+			position:absolute; 
+			top: 10px;
+			right: 10px;
+		}
+		.moon2{
+			width: 100px;
+			height: 100px;
+			background: black;
+			border-radius: 50%;
+			position:absolute; 
+			top: 10px;
+			right: 30px;
+		}
+		.moon{
+			opacity: 0;
+			animation: moon 15s  1 forwards;
+		}
+		@keyframes sun{
+			0%{
+				bottom: 0;
+				right: 20px;
+				background-color: red;
+			}
+			33%{
+				bottom: 380px;
+				right: 20px;
+				background-color: yellow;
+			}
+			66%{
+				bottom: 380px;
+				right: 480PX;
+				background-color: yellow;
+			}
+			100%{
+				bottom: 0px;
+				right: 480PX;
+				background-color: red;
+			}
+		}
+		@keyframes clo{
+			0%{
+				top: 30px;
+				left: -20px;
+			}
+			45%{
+				top:30px;
+				left:250px;
+			}
+			65%{
+				top:30px;
+				left:350px;
+			}
+			100%{
+				top: 30px;
+				left: 600px;
+			}
+		}
+		@keyframes top{
+			0%{
+				background-color: lightblue;
+			}
+			50%{
+				background-color: #31446C;
+			}
+			100%{
+				background-color: black;
+			}
+		}
+		@keyframes bottom{
+			0%{
+				background-color: lightgreen;
+			}
+			60%{
+				background-color: #144907;
+			}
+			100%{
+				background-color: #3B2A11;
+			}
+		}
+		@keyframes moon{
+			0%{
+				opacity: 0;
+			}
+			75%{
+				opacity: 0;
+			}
+			90%{
+				opacity: 0.3;
+			}
+			100%{
+				opacity: 0.8;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="top">
+			<div class="clo">
+				<div class="yun1"></div>
+				<div class="yun2"></div>
+				<div class="yun3"></div>
+			</div>
+			<div class="moon">
+				<div class="moon1"></div>
+				<div class="moon2"></div>
+			</div>
+		</div>
+		<div class="bottom"></div>
+		<div class="sun"></div>
+		
+	</div>
+</body>
+</html>
