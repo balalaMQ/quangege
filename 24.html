@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .outer{
+            width: 520px;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        .item{
+            width: 520px;
+            height: 280px;
+            float: left;
+            position: absolute;
+        }
+        .contain{
+            position: relative;
+
+        }
+        .lefts,.rights{
+            color: white;
+            font-size: 30px;
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            top:50%;
+            background: rgba(0,0,0,0.6);
+            display: none;
+        }
+        .lefts{
+            left: 0;
+        }
+        .rights{
+            right: 0;
+        }
+        .outer:hover .lefts ,.outer:hover .rights  {
+            display: block;
+        }
+        .lists{
+            border-radius: 9.5px;
+            width: 55px;
+            height: 15px;
+            background: rgba(127,127,127,0.7);
+            position: absolute;
+            left: 240px;
+            margin-left: -27.5px;
+            top:260px;
+            padding: 2px ;
+        }
+        .list{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #B7B7B7;
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+<div class="outer">
+
+    <div class="contain" style="left:-520px;transition:all 1s ">
+        <div class="item item33" style="left: 0px;"><img src="smq/smq/img/g3.jpg" height="100%" width="100%"/></div>
+        <div class="item item1" style="left: 520px;"><img src="smq/smq/img/g1.jpg" height="100%" width="100%"/></div>
+        <div class="item item2" style="left: 1040px;"><img src="smq/smq/img/g2.jpg" height="100%" width="100%"/></div>
+        <div class="item item3" style="left: 1560px;"><img src="smq/smq/img/g3.jpg" height="100%" width="100%"/></div>
+        <div class="item item11" style="left: 2080px;"><img src="smq/smq/img/g1.jpg" height="100%" width="100%"/></div>
+    </div>
+    <div class="jian">
+        <div class="lefts"><img src="smq/smq/img/左箭头.png" height="48" width="48"/></div>
+        <div class="rights"><img src="smq/smq/img/右箭头.png" height="48" width="48"/></div>
+    </div>
+
+    <div class="lists">
+        <div class="list"></div>
+        <div class="list " style="margin: 0 5px"></div>
+        <div class="list"></div>
+    </div>
+</div>
+<button class="btn" onclick="clearTime()"  style="width: 50px;height: 50px;border-radius: 30%;">gg</button>
+</body>
+<script>
+    var items = document.getElementsByClassName("item");
+    var contain = document.getElementsByClassName("contain")[0];
+    var outerDiv = document.getElementsByClassName("outer")[0];
+    var listDiv = document.getElementsByClassName("list");
+    var rightDiv = document.getElementsByClassName("rights")[0];
+    var leftDiv = document.getElementsByClassName("lefts")[0];
+        var num1 = 1;
+    rightDiv.onclick = function () {
+                var left = contain.style.left;
+                left = left.substring(left.length -2, -1);
+                if (left == "-2080") {
+                    contain.style.transition = "";
+                    contain.style.left = "-520px";
+
+                    setTimeout(function () {
+                        contain.style.transition = "all 1s";
+                        contain.style.left = "-1040px";
+                    }, 50);
+                } else {
+
+                        contain.style.left = left - 520 + "px";
+
+                }
+                for (var i = 0; i < listDiv.length; i++) {
+                    listDiv[i].style.background = "#B7B7B7";
+                }
+                console.log(num1);
+                if (num1 >= listDiv.length) {
+                    num1 = 0;
+                }
+                listDiv[num1].style.background = "#F40";
+                num1++;
+            }
+        var num1 = 1;
+        function moveImg() {
+            var left = contain.style.left;
+
+            left = left.substring(left.length -2, -1);
+            if (left == "-2080") {
+                contain.style.transition = "";
+                contain.style.left = "-520px";
+
+                setTimeout(function () {
+                    contain.style.transition = "all 1s";
+                    contain.style.left = "-1040px";
+                }, 50);
+            } else {
+                contain.style.left = left - 520 + "px";
+            }
+            for (var i = 0; i < listDiv.length; i++){
+                listDiv[i].style.background = "#B7B7B7";
+            }
+            console.log(num1);
+            if (num1 >= listDiv.length) {
+                num1 = 0;
+            }
+            listDiv[num1].style.background = "#F40";
+            num1++;
+
+        }
+
+    var num1 = 1;
+    leftDiv.onclick = function () {
+        var left = contain.style.left;
+        left = left.substring(left.length -2, -1);
+        if (left == "0") {
+            contain.style.transition = "";
+            contain.style.left = "-1560px";
+            setTimeout(function () {
+                contain.style.transition = "all 1s";
+                contain.style.left = "-1040px";
+            }, 50);
+        } else {
+
+            contain.style.left = +left + 520 + "px";
+
+        }
+        for (var i = 0; i < listDiv.length; i++) {
+            listDiv[i].style.background = "#B7B7B7";
+        }
+        console.log(num1);
+        if (num1 >= listDiv.length) {
+            num1 = 0;
+        }
+        listDiv[num1].style.background = "#F40";
+        num1++;
+    }
+
+        var num = setInterval(moveImg, 2000);
+
+    function clearTime() {
+        clearInterval(num);
+    }
+
+    outerDiv.onmouseover = function () {
+        clearTime();
+
+    }
+    outerDiv.onmouseout = function () {
+        num = setInterval(moveImg,2000);
+    }
+
+</script>
+</html>
